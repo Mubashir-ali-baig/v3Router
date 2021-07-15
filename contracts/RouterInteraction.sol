@@ -15,6 +15,7 @@ contract RouterInteraction {
         address[] calldata path,
         uint256 deadline
     ) external {
+        require(path.length >= 2, "RouterInteraction:: Invalid Path length");
         require(
             path[0] != address(0) || path[path.length - 1] != address(0),
             "RouterInteraction:: Invalid token address"
